@@ -13,6 +13,7 @@ import java.util.List;
             this.name = name;
             this.address = address;
             this.phone = phone;
+            this.inventory = new ArrayList<>();
         }
 
 

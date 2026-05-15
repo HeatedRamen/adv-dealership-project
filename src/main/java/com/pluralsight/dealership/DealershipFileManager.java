@@ -17,8 +17,6 @@ public class DealershipFileManager {
             while ((line = bufferedReader.readLine()) != null) {
                 dealership.addVehicle(line);
             }
-
-            bufferedReader.close();
             return dealership;
         }catch (IOException e){
             System.out.println("Inventory file couldn't be read. Please try again");
