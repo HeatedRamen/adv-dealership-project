@@ -5,28 +5,22 @@ import java.util.Scanner;
 
 public class UserInterface {
     private Dealership dealership;
+    static private Scanner keyboard = new Scanner(System.in);
 
     public UserInterface() {
         dealership = new Dealership();
     }
-
-    public void display() {
-
-    }
-
-
-
 
     public void runApp() {
 
         init();
 
         boolean runApp = true;
-        Scanner keyboard = new Scanner(System.in);
+
 
         while (runApp) {
             System.out.println("""
-                    
+                    ==================================================
                     DB Used Car Dealership (artwork placeholder)
                     
                     
@@ -47,10 +41,9 @@ public class UserInterface {
                     
                     
                     
-                    
+                    ==================================================
                     """);
             String userCmdRequest = keyboard.nextLine();
-
 
             switch (userCmdRequest){
                 case "1" -> getByPriceRequest();
@@ -59,17 +52,13 @@ public class UserInterface {
                 case "4" -> getByColorRequest();
                 case "5" -> getByMileageRequest();
                 case "6" -> getByVehicleTypeRequest();
-                case "7" -> getAllVehcilesRequest();
-                case "8" -> addVehcilesRequest();
+                case "7" -> getAllVehiclesRequest();
+                case "8" -> addVehicleRequest();
                 case "9" -> removeVehicleRequest();
                 case "99" -> runApp = false;
                 default -> System.out.println("Invalid User Input. Try again.");
             }
-
-
         }
-
-
     }
 
 private void init(){
@@ -107,19 +96,12 @@ public void getByVehicleTypeRequest(){
 
 }
 
-public void getAllVehcilesRequest(){
+public void getAllVehiclesRequest(){
         displayVehicles(dealership.getAllVehicles());
 }
 
-public void addVehcilesRequest(){
+public void addVehicleRequest(){}
 
-}
-
-public void removeVehicleRequest(){
-
-}
-
-
-
+public void removeVehicleRequest(){}
 
 }

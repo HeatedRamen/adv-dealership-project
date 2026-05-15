@@ -6,7 +6,5 @@ public class DealershipApp {
         UserInterface userInterface = new UserInterface();
         userInterface.runApp();
 
-
-
     }
 }

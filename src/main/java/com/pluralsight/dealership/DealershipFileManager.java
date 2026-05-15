@@ -13,18 +13,18 @@ public class DealershipFileManager {
             line = bufferedReader.readLine();
             String[] dealershipFields = line.split("\\|");
             Dealership dealership = new Dealership(dealershipFields[0], dealershipFields[1], dealershipFields[2]);
-            System.out.println(dealership);
 
             while ((line = bufferedReader.readLine()) != null) {
                 dealership.addVehicle(line);
             }
 
             bufferedReader.close();
+            return dealership;
         }catch (IOException e){
             System.out.println("Inventory file couldn't be read. Please try again");
+            return null;
         }
 
-        return null;
     }
 
     public void saveDealership(Dealership dealership){
