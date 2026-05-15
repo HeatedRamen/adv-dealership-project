@@ -41,8 +41,13 @@ import java.util.List;
         }
 
         public List<Vehicle> getAllVehicles(){
-            return null; /*Return later*/
+            return inventory; /*Return later*/
         }
 
-
+        public Dealership() {
+            name = "";
+            address = "";
+            phone = "";
+            inventory = new ArrayList<>();
+        }
     }

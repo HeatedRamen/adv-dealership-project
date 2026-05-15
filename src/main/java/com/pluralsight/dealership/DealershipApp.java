@@ -6,8 +6,7 @@ public class DealershipApp {
         UserInterface userInterface = new UserInterface();
         userInterface.display();
 
-        Dealership dealership = new Dealership();
-        dealership .getAllVehicles();
+
 
     }
 }

@@ -1,21 +1,31 @@
 package com.pluralsight.dealership;
 
+import java.util.List;
+import java.util.Scanner;
+
 public class UserInterface {
-    private Dealership Dealership;
+    private Dealership dealership;
+
+    public UserInterface() {
+        dealership = new Dealership();
+    }
 
     public void display() {
 
     }
 
 
+
+
     public void runApp() {
+
         boolean runApp = true;
+        Scanner keyboard = new Scanner(System.in);
+
         while (runApp) {
             System.out.println("""
                     
                     DB Used Car Dealership (artwork placeholder)
-                    
-                    
                     
                     
                     
@@ -36,9 +46,78 @@ public class UserInterface {
                     
                     
                     
-                    
-                    
                     """);
+            String userCmdRequest = keyboard.nextLine();
+
+
+            switch (userCmdRequest){
+                case "1" -> getByPriceRequest();
+                case "2" -> getByMakeModelRequest();
+                case "3" -> getByYearRequest();
+                case "4" -> getByColorRequest();
+                case "5" -> getByMileageRequest();
+                case "6" -> getByVehicleTypeRequest();
+                case "7" -> getAllVehcilesRequest();
+                case "8" -> addVehcilesRequest();
+                case "9" -> removeVehicleRequest();
+                case "99" -> runApp = false;
+                default -> System.out.println("Invalid User Input. Try again.");
+            }
+
+
         }
+
+
     }
+
+private void init(){
+        DealershipFileManager dealershipFileManager = new DealershipFileManager();
+        dealership = dealershipFileManager.getDealerShip();
+}
+
+private void displayVehicles(List<Vehicle>filteredVehicles){
+        for (Vehicle vehicle : filteredVehicles){
+            System.out.println(vehicle);
+        }
+}
+
+public void getByPriceRequest(){
+
+}
+
+public void getByMakeModelRequest(){
+
+}
+
+public void getByYearRequest(){
+
+}
+
+public void getByColorRequest(){
+
+}
+
+public void getByMileageRequest(){
+
+}
+
+public void getByVehicleTypeRequest(){
+
+}
+
+public void getAllVehcilesRequest(){
+        displayVehicles(dealership.getAllVehicles());
+}
+
+public void addVehcilesRequest(){
+
+}
+
+public void removeVehicleRequest(){
+
+}
+
+
+
+
 }
