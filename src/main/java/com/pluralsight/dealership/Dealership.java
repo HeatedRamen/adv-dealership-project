@@ -44,6 +44,12 @@ import java.util.List;
             return inventory; /*Return later*/
         }
 
+        public void addVehicle(String line){
+            String[] vehicleFields = line.split("\\|");
+            Vehicle vehicle = new Vehicle(Integer.parseInt(vehicleFields[0]), Integer.parseInt(vehicleFields[1]), vehicleFields[2], vehicleFields[3], vehicleFields[4], vehicleFields[5], Integer.parseInt(vehicleFields[6]), Double.parseDouble(vehicleFields[7]));
+            inventory.add(vehicle);
+        }
+
         public Dealership() {
             name = "";
             address = "";

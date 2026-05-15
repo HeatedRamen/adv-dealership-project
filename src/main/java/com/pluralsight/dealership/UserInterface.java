@@ -19,6 +19,8 @@ public class UserInterface {
 
     public void runApp() {
 
+        init();
+
         boolean runApp = true;
         Scanner keyboard = new Scanner(System.in);
 
