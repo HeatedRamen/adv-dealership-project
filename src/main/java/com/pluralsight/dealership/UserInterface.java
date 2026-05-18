@@ -21,13 +21,12 @@ public class UserInterface {
         while (runApp) {
             System.out.println("""
                     ==================================================
-                     ___            ____          __   ____  ____         ___      ___   ____  _        ___  ____     _____  __ __  ____  ____ 
-                    |   \\          |    \\        /  ] /    ||    \\    |   \\   /  _] /    || |      /  _]|    \\  / ___/ |  |  ||    ||    \
-                    |    \\         |  o  )      /  / |  o  ||  D  )     |    \\ /  [_ |  o  || |     /  [_ |  D  ) (  \\_  |  |  | |  | |  o  )
-                    |  D  |        |     |     /  /  |     ||    /       |  D  ||    _]|     || |___ |    _]|    /  \\__   ||  _  | |  | |   _/
-                    |     |        |  O  |    /   \\_ |  _  ||    \\     |     ||   [_ |  _  ||     ||   [_ |    \\  /  \\ ||  |  | |  | |  |  
-                    |     |        |     |    \\     ||  |  ||  .  \\    |     ||     ||  |  ||     ||     ||  .  \\ \\    ||  |  | |  | |  |  
-                    |_____|        |_____|     \\____||__|__||__|\\_|    |_____||_____||__|__||_____||_____||__|\\_|  \\___||__|__||____||__|  
+                     ___        ____           __   ____  ____        ___      ___   ____  _        ___  ____     _____  __ __  ____  ____ 
+                    |   \\     |    \\        / ] /     ||    \\     |   \\   /  _] /    || |      /  _]|    \\  / ___/ |  |  ||    ||    \
+                    |    \\    |  o  )      /  /  |  o  ||  D  )     |    \\ /  [_ |  o  || |     /  [_ |  D  ) (  \\_  |  |  | |  | |  o  )
+                    |  D  |    |     |     /  /   |     ||    /      |  D  ||    _]|     || |___ |    _]|    /  \\__   ||  _  | |  | |   _/
+                    |     |    |  O  |    /   \\_ |  _  ||    \\     |     ||   [_ |  _  ||     ||   [_ |    \\   _ \\ ||  |  | |  | |  |  
+                    |_____|    |_____|     \\____||__|__||__|\\_|    |_____||_____||__|__||_____||_____||__|\\_|  \\___||__|__||____||__|  
                     
                     
                     
@@ -77,13 +76,50 @@ private void displayVehicles(List<Vehicle>filteredVehicles){
 
 public void getByPriceRequest(){
 
+        boolean runPrice = false;
+
+        while (!runPrice){
+            System.out.println("Minimum price point? ");
+                double minPrice = keyboard.nextDouble();
+            System.out.println("Maximum price point? ");
+                double maxPrice = keyboard.nextDouble();
+            keyboard.nextLine();
+
+            displayVehicles(dealership.getPricedVehicle(minPrice, maxPrice));
+            runPrice = true;
+        }
+
 }
 
 public void getByMakeModelRequest(){
 
+    System.out.println("Maker of vehicle? ");
+        String maker = keyboard.nextLine();
+    System.out.println("Model of vehicle? ");
+        String model = keyboard.nextLine();
+
+    displayVehicles(dealership.getVehicleMakeModel(maker, model));
+
 }
 
 public void getByYearRequest(){
+
+boolean runAge = false;
+
+while (!runAge) {
+    System.out.println("Youngest year for vehicle? ");
+    int min = keyboard.nextInt();
+    System.out.println("Oldest year for vehicle? ");
+    int max = keyboard.nextInt();
+    keyboard.nextLine();
+
+    displayVehicles(dealership.getVehicleAge(min, max));
+    runAge = true;
+
+}
+
+
+
 
 }
 
